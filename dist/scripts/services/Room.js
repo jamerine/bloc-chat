@@ -1,11 +1,13 @@
 (function() {
   function Room($firebaseArray) {
-    var firebaseRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com");
-    var rooms = $firebaseArray(firebaseRef.child('rooms'));
+    var Room = {};
+      
+    var roomRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com/rooms");
+    var rooms = $firebaseArray(roomRef);
 
-    return {    
-      all: rooms
-    };
+    Room.all = rooms;
+      
+    return Room;
   }
     
   angular

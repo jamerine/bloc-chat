@@ -1,11 +1,11 @@
 <h1 class="hero-title">{{ home.heroTitle }}</h1>
+<h2>Current Room: {{ home.currentRoom.name }}</h2>
  
 
  <section class="home-rooms">
-     <div ng-repeat="room in rooms">
+     <div ng-repeat="room in home.rooms">
          <div class="room-info caption">
-             <p class="room-name" ui-sref="room">{{ room.name }}
-             </p>
+             <p class="room-name" ng-click="home.setRoom(room)">{{ room.name }}</p>
          </div>
      </div>
  </section>
