@@ -1,18 +1,21 @@
+
 (function() {
   function Room($firebaseArray) {
-    var Room = {};
+    var firebaseRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com/");
+    var rooms = $firebaseArray(firebaseRef.child('rooms'));
 
-    var roomRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com/rooms");
-    var rooms = $firebaseArray(roomRef);
+    return {
+      all: rooms,
 
-    Room.all = rooms;
+      add: function(room) {
+        room.createdAt = Firebase.ServerValue.TIMESTAMP;
+        rooms.$add(room);
+      },
 
-    Room.add = function (room) {
-      room.createdAt = Firebase.ServerValue.TIMESTAMP;
-      rooms.$add(room);
-    }
-
-    return Room;
+      getMessages: function(roomId) {
+        return $firebaseArray(firebaseRef.child('messages').orderByChild("roomId").equalTo(roomId));
+      }
+    };
   }
 
   angular

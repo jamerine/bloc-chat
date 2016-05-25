@@ -1,5 +1,5 @@
 
-<div class="container">
+<!-- <div class="container">
 
   <h1 class="hero-title">{{ home.heroTitle }}</h1>
   <h2>Current Room: {{ home.currentRoom.name }}</h2>
@@ -14,4 +14,35 @@
        </div>
        <a class="btn" ng-click="home.open()">add</a>
    </section>
+</div> -->
+
+
+
+
+<!-- <section class="jumbotron">
+	<h1 id="home-title">BlocChat</h1>
+</section> -->
+
+<div class="col-md-3 sidebar">
+	<div class="header">
+    <h1 id="home-title">BlocChat</h1>
+		<div class="new-chat-room">
+			<button class="btn btn-primary" ng-click="home.open()"><strong>+</strong> New Chat Room</button>
+		</div>
+	</div>
+
+	<section class="rooms-list">
+		<div ng-repeat="room in home.rooms" class="chatrooms">
+			<a class="room-name" ng-click="home.setRoom(room)">{{ room.name }}</p>
+		</div>
+	</section>
+</div>
+
+<div class="col-md-9 chatroom">
+  <h2>{{ home.currentRoom.name }}</h2>
+ 	<p ng-repeat="message in home.messages">
+			<strong>{{ message.username }} ({{ message.sentAt }}):</strong>  {{ message.content }}
+	</p>
+
+
 </div>
