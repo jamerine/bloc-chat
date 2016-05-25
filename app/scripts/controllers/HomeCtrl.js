@@ -7,12 +7,11 @@
         ctrl.setRoom = function(room) {
             ctrl.currentRoom = room;
             ctrl.messages = Room.getMessages(ctrl.currentRoom.$id);
-        }
+        };
 
         ctrl.sendMessage = function() {
-          Message.send(ctrl.newMessage, ctr.currentRoom.$id);
-          ctrl.newMessage = '';
-        }
+          Message.send(ctrl.newMessage, ctrl.currentRoom.$id);
+        };
 
         ctrl.open = function (){
           var modalInstance = $uibModal.open({

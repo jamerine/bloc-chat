@@ -5,7 +5,6 @@
     ctrl.addRoom = function () {
 
       Room.add($scope.room);
-
       $uibModalInstance.close(event);
     }
 
