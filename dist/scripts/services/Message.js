@@ -6,7 +6,7 @@
 		return {
 			send: function(newMessage, roomID) {
 				var message = {
-					username: "username",
+					username: $cookies.get('blocChatCurrentUser'),
 					content: newMessage,
 					sentAt: Firebase.ServerValue.TIMESTAMP,
 					roomID: roomID

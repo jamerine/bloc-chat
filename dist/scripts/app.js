@@ -19,10 +19,33 @@
                 templateUrl: '/templates/modal.html'
             })
 
-            ;
-     }
+            .state('username', {
+                url: '/',
+                controller: 'UsernameCtrl as username',
+                templateUrl: '/templates/username.html'
+            });
+
+      }
+
+    function BlocChatCookies($cookies, $uibModal) {
+        var currentUser = $cookies.get('blocChatCurrentUser');
+        if (!currentUser || currentUser === '') {
+          var modalInstance = $uibModal.open({
+            controller: 'UsernameCtrl as username',
+            templateUrl: '/templates/username.html',
+            backdrop: 'static'
+          });
+
+          modalInstance.result.then(function(data) {
+				        $cookies.put('blocChatCurrentUser', data);
+                
+          });
+
+        }
+    }
 
      angular
-         .module('blocChat', ['ui.router', 'firebase','ui.bootstrap'])
-         .config(config);
+         .module('blocChat', ['ui.router', 'firebase','ui.bootstrap', 'ngCookies'])
+         .config(config)
+         .run(['$cookies', '$uibModal', BlocChatCookies]);
  })();
