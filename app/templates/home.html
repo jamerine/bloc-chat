@@ -1,11 +1,17 @@
-<h1 class="hero-title">{{ home.heroTitle }}</h1>
-<h2>Current Room: {{ home.currentRoom.name }}</h2>
- 
 
- <section class="home-rooms">
-     <div ng-repeat="room in home.rooms">
-         <div class="room-info caption">
-             <p class="room-name" ng-click="home.setRoom(room)">{{ room.name }}</p>
-         </div>
-     </div>
- </section>
+<div class="container">
+
+  <h1 class="hero-title">{{ home.heroTitle }}</h1>
+  <h2>Current Room: {{ home.currentRoom.name }}</h2>
+
+
+   <section class="home-rooms">
+       <div ng-repeat="room in home.rooms">
+           <div class="room-info caption">
+               <p class="room-name" ng-click="home.setRoom(room)">{{ room.name }}</p>
+           </div>
+
+       </div>
+       <a class="btn" ng-click="home.open()">add</a>
+   </section>
+</div>

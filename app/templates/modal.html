@@ -1,0 +1,12 @@
+
+    <div class="modal-body">
+      <h3 class="modal-title">Create a new Chat room</h3>
+      <form>
+        <label for="roomName">Enter a Room Name</label>
+        <input required type='text' maxlength="15" autofocus placeholder="room name" ng-model="room.name">
+      </form>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="modal.cancel()">Cancel</button>
+        <button class="btn btn-warning" type="button" ng-click="modal.addRoom( )">Create Room</button>
+      </div>
+    </div>
