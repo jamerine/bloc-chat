@@ -5,8 +5,9 @@
         ctrl.rooms = Room.all
 
         ctrl.setRoom = function(room) {
+
             ctrl.currentRoom = room;
-            ctrl.messages = Room.getMessages(ctrl.currentRoom.$id);
+            ctrl.messages = Message.findById(room.$id);
         };
 
         ctrl.sendMessage = function() {

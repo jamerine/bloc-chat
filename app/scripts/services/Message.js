@@ -1,7 +1,7 @@
 (function() {
 	function Message($firebaseArray, $cookies) {
-		var firebaseRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com/");
-		var messageRef = $firebaseArray(firebaseRef.child('messages'));
+		var firebaseRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com/messages");
+		var messageRef = $firebaseArray(firebaseRef);
 
 		return {
 			send: function(newMessage, roomId) {
@@ -12,7 +12,11 @@
 					roomId: roomId
 				}
 				messageRef.$add(message);
-			}
+			},
+
+			findById: function(roomId) {
+        return $firebaseArray(firebaseRef.orderByChild("roomId").equalTo(roomId));
+      }
 		};
 
 	}

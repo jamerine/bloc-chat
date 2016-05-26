@@ -9,22 +9,19 @@
 
 	<section class="rooms-list">
 		<div ng-repeat="room in home.rooms" class="chatrooms">
-			<a class="room-name" ng-click="home.setRoom(room)">{{ room.name }}</p>
+			<a class="room-name" ng-click="home.setRoom(room)">{{ room.name }}</a>
 		</div>
 	</section>
 </div>
 
 <div class="col-md-9 chatroom">
-  <h2>{{ home.currentRoom.name }}</h2>
- 	<p ng-repeat="message in home.messages">
-			<strong>{{ message.username }} ({{ message.sentAt }}):</strong>  {{ message.content }}
+	<h2>{{ home.currentRoom.name }}</h2>
+	<p ng-repeat="message in home.messages">
+	    <strong>{{ message.username }} ({{ message.sentAt }}):</strong>  {{ message.content }}
 	</p>
 
-	<form>
-		<div class="col-md-8 message-input">
-			<input type="text" placeholder="Write your message here..." class="form-control" ng-model="home.newMessage">
-		</div>
-		<button class="col-md-1 btn btn-success" type="button" ng-click="home.sendMessage()">Send</button>
-	</form>
-
+	<div class="col-md-8 message-input">
+	  <input type="text" placeholder="Write your message here..." class="form-control" ng-model="home.newMessage">
+	</div>
+	<button class="col-md-1 btn btn-success" type="button" ng-click="home.sendMessage()">Send</button>
 </div>

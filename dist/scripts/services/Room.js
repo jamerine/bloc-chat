@@ -1,8 +1,8 @@
 
 (function() {
   function Room($firebaseArray) {
-    var firebaseRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com/");
-    var rooms = $firebaseArray(firebaseRef.child('rooms'));
+    var roomsRef = new Firebase("https://bloc-chat-df4ed.firebaseio.com/rooms");
+    var rooms = $firebaseArray(roomsRef);
 
     return {
       all: rooms,
@@ -10,11 +10,9 @@
       add: function(room) {
         room.createdAt = Firebase.ServerValue.TIMESTAMP;
         rooms.$add(room);
-      },
-
-      getMessages: function(roomId) {
-        return $firebaseArray(firebaseRef.child('messages').orderByChild("roomId").equalTo(roomId));
       }
+
+
     };
   }
 
